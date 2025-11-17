@@ -2,9 +2,13 @@ package com.demo;
 
 public class Motorcycle implements Vehicle {
     private String model;
+    private String color;
+    private int year;
 
-    public Motorcycle(String model) {
+    public Motorcycle(String model, String color, int year) {
         this.model = model;
+        this.color = color;
+        this.year = year;
     }
 
     @Override
@@ -21,4 +25,15 @@ public class Motorcycle implements Vehicle {
     public String getType() {
         return "Motorcycle";
     }
+
+    @Override
+    public String getModel() {
+        return model;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Modèle: " + model + ", Couleur: " + color + ", Année: " + year;
+    }
 }
+
