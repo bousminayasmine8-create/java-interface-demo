@@ -2,4 +2,5 @@ com/demo/Car.class
 com/demo/Motorcycle.class
 Main.class
 com/demo/VehicleManager.class
+com/demo/LoginServlet.class
 com/demo/Vehicle.class
