@@ -2,7 +2,6 @@ package com.demo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class VehicleManager {
     private List<Vehicle> vehicles;
@@ -11,38 +10,14 @@ public class VehicleManager {
         vehicles = new ArrayList<>();
     }
 
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
-    }
-
-    public void startAll() {
-        for (Vehicle v : vehicles) {
-            v.start();
-        }
-    }
-
-    public void stopAll() {
-        for (Vehicle v : vehicles) {
-            v.stop();
-        }
-    }
-
-    public int getTotalVehicles() {
-        return vehicles.size();
-    }
-
-    public void showAllDetails() {
-        for (Vehicle v : vehicles) {
-            if (v instanceof Car) {
-                System.out.println("Voiture : " + ((Car) v).getDetails());
-            } else if (v instanceof Motorcycle) {
-                System.out.println("Moto : " + ((Motorcycle) v).getDetails());
-            }
-        }
-    }
+    public void addVehicle(Vehicle vehicle) { vehicles.add(vehicle); }
+    public void startAll() { for (Vehicle v : vehicles) v.start(); }
+    public void stopAll() { for (Vehicle v : vehicles) v.stop(); }
+    public int getTotalVehicles() { return vehicles.size(); }
 
     public static void main(String[] args) {
         VehicleManager manager = new VehicleManager();
+<<<<<<< HEAD
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Combien de véhicules voulez-vous ajouter ? ");
@@ -76,10 +51,13 @@ public class VehicleManager {
 
         System.out.println("\nTotal véhicules : " + manager.getTotalVehicles());
         manager.showAllDetails();
+=======
+        manager.addVehicle(new Car("Toyota"));
+        manager.addVehicle(new Motorcycle("Yamaha"));
+
+        System.out.println("Total véhicules: " + manager.getTotalVehicles());
+>>>>>>> Mise à jour des classes, pom.xml et ajout du LoginServlet + WAR
         manager.startAll();
         manager.stopAll();
-
-        scanner.close();
     }
 }
-
