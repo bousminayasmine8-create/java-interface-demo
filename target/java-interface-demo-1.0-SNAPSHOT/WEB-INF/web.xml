@@ -1,8 +1,12 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
+    <!-- ===== Servlet de Login ===== -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.demo.LoginServlet</servlet-class>
@@ -13,4 +17,21 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <!-- ===== Servlet de Signup (optionnel) ===== -->
+    <servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>com.demo.SignupServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
+    <!-- ===== Page d’accueil par défaut ===== -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
 </web-app>
+
