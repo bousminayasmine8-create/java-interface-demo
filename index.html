@@ -2,15 +2,78 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Projet Java Web</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Connexion - AutoManager</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("img/car.jpg"); /* mets ton image ici */
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(5px);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            background-color: #1b1b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .error {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur mon projet Java + HTML + CSS</h1>
-    <p>Ceci est la page principale de mon site web.</p>
-    <button id="btnStart">Démarrer le véhicule</button>
-    <div id="output"></div>
 
-    <script src="app.js"></script>
+<div class="login-box">
+    <h2>Connexion</h2>
+
+    <% if (request.getParameter("error") != null) { %>
+        <p class="error">Identifiant ou mot de passe incorrect</p>
+    <% } %>
+
+    <form action="login" method="post">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
+</div>
+
 </body>
 </html>
+
