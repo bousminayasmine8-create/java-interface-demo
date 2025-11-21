@@ -1,9 +1,13 @@
 package com.demo.servlets;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -13,10 +17,13 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        if ("admin".equals(username) && "1234".equals(password)) {
-            response.sendRedirect("dashboard.html");
+        // vérifie si login correct (ici juste un exemple)
+        if ("admin".equals(username) && "admin123".equals(password)) {
+            // redirige vers la page d'enregistrement
+            response.sendRedirect("index.html");
         } else {
-            response.sendRedirect("index.html?error=1");
+            response.getWriter().println("<h3>Login ou mot de passe incorrect!</h3>");
+            response.getWriter().println("<a href='login.html'>Réessayer</a>");
         }
     }
 }

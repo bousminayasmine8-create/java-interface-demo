@@ -1,37 +1,25 @@
 package com.demo;
 
-public class Motorcycle implements Vehicle {
+public class Motorcycle {
+    private String brand;
     private String model;
+    private int year;
 
-    public Motorcycle(String model) { this.model = model; }
+    public Motorcycle() {}
 
-    @Override
-<<<<<<< HEAD
-    public String getModel() {
-        return model;
+    public Motorcycle(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
     }
 
-    @Override
-    public String getDetails() {
-        return "Motorcycle - Modèle: " + model + ", Couleur: " + color + ", Année: " + year;
-    }
+    public String getBrand() { return brand; }
+    public void setBrand(String brand) { this.brand = brand; }
 
-=======
-    public void start() { System.out.println("La moto " + model + " démarre"); }
->>>>>>> Mise à jour des classes, pom.xml et ajout du LoginServlet + WAR
-    @Override
-    public void stop() { System.out.println("La moto " + model + " s'arrête"); }
-    @Override
-<<<<<<< HEAD
-    public void start() {
-        System.out.println("La moto " + model + " démarre...");
-    }
+    public String getModel() { return model; }
+    public void setModel(String model) { this.model = model; }
 
-    @Override
-    public void stop() {
-        System.out.println("La moto " + model + " s'arrête...");
-    }
-=======
-    public String getType() { return "Motorcycle"; }
->>>>>>> Mise à jour des classes, pom.xml et ajout du LoginServlet + WAR
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
 }
+
