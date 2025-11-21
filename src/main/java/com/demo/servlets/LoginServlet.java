@@ -12,7 +12,6 @@ public class LoginServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
         // TEST simple
         if (username.equals("admin") && password.equals("admin")) {
             response.sendRedirect("welcome.html");
@@ -21,3 +20,13 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
+
+        if ("admin".equals(username) && "1234".equals(password)) {
+            response.sendRedirect("dashboard.html");
+        } else {
+            response.sendRedirect("index.html?error=1");
+        }
+    }
+}
+
+
