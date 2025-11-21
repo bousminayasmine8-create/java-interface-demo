@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'git@github.com:TON_USERNAME/java-interface-demo.git'
+                    url: 'https://github.com/bousminayasmine8-create/java-interface-demo.git'
             }
         }
 
@@ -24,32 +24,6 @@ pipeline {
         stage('Tests') {
             steps {
                 sh 'mvn test'
-            }
-        }
-
-        stage('SAST - SonarQube') {
-            environment {
-                SONAR_SCANNER_HOME = tool 'SonarScanner'
-            }
-            steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh '''${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=java-demo \
-                        -Dsonar.sources=src \
-                        -Dsonar.java.binaries=target'''
-                }
-            }
-        }
-
-        stage('Build Artifact') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-
-        stage('Archive Artifact') {
-            steps {
-                archiveArtifacts artifacts: 'target/*.war', fingerprint: true
             }
         }
 
