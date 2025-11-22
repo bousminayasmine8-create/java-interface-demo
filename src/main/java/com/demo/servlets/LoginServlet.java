@@ -1,11 +1,12 @@
 package com.demo.servlets;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -17,12 +18,13 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Vérification simple
-        if ("admin".equals(username) && "admin".equals(password)) {
-            response.sendRedirect("welcome.html");
+        // Exemple simple : login admin/admin
+        if("admin".equals(username) && "admin".equals(password)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("username", username);
+            response.sendRedirect("dashboard.html");
         } else {
-            response.getWriter().println("<h3>Login ou mot de passe incorrect!</h3>");
-            response.getWriter().println("<a href='login.html'>Réessayer</a>");
+            response.sendRedirect("index.jsp?error=true");
         }
     }
 }
