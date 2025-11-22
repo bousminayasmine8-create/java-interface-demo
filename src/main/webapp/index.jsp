@@ -8,6 +8,9 @@
 </head>
 <body>
 <div class="container">
+    <!-- Logo en haut de la page -->
+    <img src="images/logo.png" alt="Logo" style="width:100px; margin-bottom:20px;">
+
     <h1>Connexion</h1>
     <form action="login" method="post">
         <input type="text" name="username" placeholder="Nom d'utilisateur" required>
@@ -22,3 +25,4 @@
 </div>
 </body>
 </html>
+
