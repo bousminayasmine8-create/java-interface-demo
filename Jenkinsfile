@@ -29,9 +29,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'cp target/*.war /var/www/html/'
+                sh '''
+                    mkdir -p /var/www/html/
+                    cp target/*.war /var/www/html/
+                '''
             }
         }
-    }
+
+    } 
 }
 
