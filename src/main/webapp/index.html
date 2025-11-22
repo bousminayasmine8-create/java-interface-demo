@@ -2,117 +2,78 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Register Motorcycle</title>
+    <title>Connexion - AutoManager</title>
     <style>
-        /* Reset et police */
-        * {
-            box-sizing: border-box;
+        body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: #f5f6fa;
+            font-family: Arial, sans-serif;
+            background-image: url("img/car.jpg"); /* mets ton image ici */
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(5px);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
-        .container {
-            background: #ffffff;
+        .login-box {
+            background: rgba(255, 255, 255, 0.15);
             padding: 40px;
+            backdrop-filter: blur(10px);
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            width: 400px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2f3640;
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #2f3640;
-            font-weight: 500;
-        }
-
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-            border: 1px solid #dcdde1;
-            transition: border 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="number"]:focus {
-            border: 1px solid #718093;
-            outline: none;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            background: #40739e;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
             color: white;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            background-color: #1b1b1b;
+            color: white;
+            border: none;
+            border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
-        input[type="submit"]:hover {
-            background: #3498db;
+        button:hover {
+            background-color: #333;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #718093;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #40739e;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+        .error {
+            color: #ff6b6b;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Register Motorcycle</h1>
-        <form action="signup" method="post">
-            <label for="brand">Brand:</label>
-            <input type="text" id="brand" name="brand" placeholder="Enter brand" required>
 
-            <label for="model">Model:</label>
-            <input type="text" id="model" name="model" placeholder="Enter model" required>
+<div class="login-box">
+    <h2>Connexion</h2>
 
-            <label for="year">Year:</label>
-            <input type="number" id="year" name="year" placeholder="Enter year" required>
+    <% if (request.getParameter("error") != null) { %>
+        <p class="error">Identifiant ou mot de passe incorrect</p>
+    <% } %>
 
-            <input type="submit" value="Register">
-        </form>
-        <div class="footer">
-            &copy; 2025 Motorcycle Registration | <a href="#">Back to Home</a>
-        </div>
-<div class="footer">
-    &copy; 2025 Motorcycle Registration | <a href="login.html">Login</a>
+    <form action="login" method="post">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
 </div>
 
-    </div>
 </body>
 </html>
 

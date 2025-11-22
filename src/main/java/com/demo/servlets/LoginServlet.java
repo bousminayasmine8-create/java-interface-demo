@@ -16,24 +16,14 @@ public class LoginServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        // TEST simple
-        if (username.equals("admin") && password.equals("admin")) {
-            response.sendRedirect("welcome.html");
-        } else {
-            response.sendRedirect("login.html");
-        }
-    }
-}
 
-        // vérifie si login correct (ici juste un exemple)
-        if ("admin".equals(username) && "admin123".equals(password)) {
-            // redirige vers la page d'enregistrement
-            response.sendRedirect("index.html");
+        // Vérification simple
+        if ("admin".equals(username) && "admin".equals(password)) {
+            response.sendRedirect("welcome.html");
         } else {
             response.getWriter().println("<h3>Login ou mot de passe incorrect!</h3>");
             response.getWriter().println("<a href='login.html'>Réessayer</a>");
         }
     }
 }
-
 
